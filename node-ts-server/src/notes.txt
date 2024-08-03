@@ -1,0 +1,70 @@
+coingecko : 
+
+{
+		"id": "bitcoin",
+		"symbol": "btc",
+		"name": "Bitcoin"
+	},
+
+
+	{
+		"id": "ethereum",
+		"symbol": "eth",
+		"name": "Ethereum"
+	},
+
+	{
+		"id": "dogecoin",
+		"symbol": "doge",
+		"name": "Dogecoin"
+	},
+
+	{
+		"id": "solana",
+		"symbol": "sol",
+		"name": "Solana"
+	},
+
+	{
+		"id": "binancecoin",
+		"symbol": "bnb",
+		"name": "BNB"
+	},
+
+
+
+curl --location --request GET 'api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,dogecoin,solana,binancecoin&vs_currencies=INR'
+
+
+mongodb
+username : rishabhds1998
+password : WIguNZwXI1EBNI5j
+
+
+in nodejs : 
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://rishabhds1998:WIguNZwXI1EBNI5j@cluster0.3cqufa1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
+
